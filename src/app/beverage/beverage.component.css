@@ -1,0 +1,23 @@
+.grid{
+    border: 5px solid dimgray;
+    font-size: 15px;
+    color:darkred;
+}
+#addbutton{
+    float: right;
+    color: darkred;
+    background-color: dimgrey;
+    
+}
+#beverageheading{
+    text-align: center;
+    color: darkred;
+}
+.myChoose{
+    text-align: center;
+    
+}
+.myChooseButton{
+    color: darkred;
+    border: 5px solid crimson
+}

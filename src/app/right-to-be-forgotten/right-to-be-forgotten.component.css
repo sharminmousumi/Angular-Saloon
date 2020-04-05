@@ -1,0 +1,9 @@
+#forgetButton{
+    font-size: 20px;
+    color:darkred;
+    margin-top: 30px;
+    background-color: dimgray;
+}
+#forgetMess{
+    text-align: center;
+}

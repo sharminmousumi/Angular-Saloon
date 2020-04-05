@@ -1,0 +1,11 @@
+<app-title></app-title>
+<app-dialogue
+[inputForm]='inputForm'
+[showChangeForm]='showChangeForm'
+
+
+></app-dialogue>
+<app-beverage [showBeverage]='showBeverage' ></app-beverage>
+<app-right-to-be-forgotten (forgetEmit)='controlEmit()' 
+[showforgetMessage]='showforgetMessage'
+[showforget]='showforget'></app-right-to-be-forgotten>

@@ -1,0 +1,25 @@
+<div id="HowdyText" *ngIf="HowdyText">
+    <h1>Howdy, stranger. Haven't seen your face around here before. What's your name?"</h1>
+</div>
+
+<app-the-usual (sendUsual)='getUsual()' [showUsual]='showUsual'></app-the-usual>
+<div id="inputForm" *ngIf="inputForm">
+     <input type="text" placeholder="FirstName" id="inputFirstName" (keyup)="FirstName($event)">
+     <input type="text" placeholder="LastName" id="inputLastName" (keyup)="LastName($event)">
+     <br>
+     <button (click)="StoreFirstLastName()">Submit</button>
+</div>
+<div id="showMess" *ngIf="showChangeForm">
+    <h1>{{showFirstNameAndWelcomeMessage}}</h1>
+    <div *ngIf="showJustChangeForm">
+    <input type="text" placeholder="ChangeName" id="ChangeName" (keyup)="changeFirstName($event)">
+    <button (click)="StoreChangeName()">Submit</button>
+</div>
+</div>
+<app-beverage [showBeverage] ='showBeverage'></app-beverage>
+
+
+
+
+
+

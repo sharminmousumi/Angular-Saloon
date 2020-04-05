@@ -1,0 +1,17 @@
+<div *ngIf="showBeverage">
+<h1>{{showSelectedBeverage}}</h1>
+<div id="beverageheading">
+    <h1>The Beverage List</h1>
+</div>
+
+
+    
+<div class="grid" *ngFor="let beverage of SelectBeverageList">   
+<strong>{{beverage.name}}</strong><button id="addbutton" (click) ="addBeverage(beverage.name)">ADD</button>
+</div>
+<div class="myChoose">
+    <input type="text" placeholder="write drink" class="myChooseButton" (keyup)="inputButtonmyChoice($event)">
+    <button (click)="myChooseButton()" class="myChooseButton">Add</button>
+</div>
+</div>
+
