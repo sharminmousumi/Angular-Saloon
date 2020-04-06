@@ -1,8 +1,14 @@
 <div id="HowdyText" *ngIf="HowdyText">
-    <h1>Howdy, stranger. Haven't seen your face around here before. What's your name?"</h1>
+    <h1>Howdy, stranger. Haven't seen your face around here before. What's your name?</h1>
 </div>
 
+<div id="gotIt" *ngIf="showforgetMessage && !HowdyText" >
+    <h2>Got it. Who are you again?</h2>
+</div>
+
+
 <app-the-usual (sendUsual)='getUsual()' [showUsual]='showUsual'></app-the-usual>
+
 <div id="inputForm" *ngIf="inputForm">
      <input type="text" placeholder="FirstName" id="inputFirstName" (keyup)="FirstName($event)">
      <input type="text" placeholder="LastName" id="inputLastName" (keyup)="LastName($event)">
@@ -16,7 +22,7 @@
     <button (click)="StoreChangeName()">Submit</button>
 </div>
 </div>
-<app-beverage [showBeverage] ='showBeverage'></app-beverage>
+
 
 
 

@@ -9,20 +9,20 @@ import { LocalStorageService} from '../local-storage.service';
 export class RightToBeForgottenComponent implements OnInit {
   @Input() showforget:boolean;
   @Output() forgetEmit= new EventEmitter();
-  @Input() showforgetMessage:boolean;
-  GotIt:string;
+  
+  
   
 
   forgetButton(){
     this.forgetEmit.emit();
-    this.GotIt="Got it. Who are you again?";
+    
     
   }
 
   constructor(public LocalStorageService:LocalStorageService) { }
   
   ngOnInit(): void {
-    this.showforget=true;
+    
   }
 
 }

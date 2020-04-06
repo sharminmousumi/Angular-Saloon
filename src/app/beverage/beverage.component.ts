@@ -29,7 +29,7 @@ export class BeverageComponent implements OnInit {
     this.inputValue = event.target.value;
   }
   myChooseButton(){
-    this.LocalStorageService.StoreChooseBeverage(this.inputValue);
+  this.LocalStorageService.StoreChooseBeverage(this.inputValue);
   this.showSelectedBeverage= "One " + this.inputValue+"  coming right up!";   
   }
   
@@ -38,7 +38,8 @@ export class BeverageComponent implements OnInit {
 
   ngOnInit(): void {
   this.SelectBeverageList=this.LocalStorageService.getBeverage();
-this.showBeverage=false;
+  this.showBeverage=false;
+  
   }
 
 }

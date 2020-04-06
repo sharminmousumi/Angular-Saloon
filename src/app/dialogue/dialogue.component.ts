@@ -2,6 +2,7 @@ import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { LocalStorageService } from '../local-storage.service';
 import { Drink } from '../drink';
 
+
 @Component({
   selector: 'app-dialogue',
   templateUrl: './dialogue.component.html',
@@ -9,19 +10,19 @@ import { Drink } from '../drink';
 })
 export class DialogueComponent implements OnInit {
   SelectBeverageList: Drink[];
-  @Input() HowdyText:boolean=true;
+  @Input() HowdyText:boolean;
   @Input() inputForm:boolean;
   @Input() showChangeForm:boolean;
   showUsual:boolean;
+  HowdyMessage:string;
   
-  FirstNameValue:string;
-  LastNameValue:string;
+  FirstNameValue:any;
+  LastNameValue:any;
   showFirstNameAndWelcomeMessage:string;
   ChangeNameValue:string;
-  showBeverage:boolean;
   showJustChangeForm:boolean;
-  
-
+  @Input() showforgetMessage:boolean=true;
+ @Output() FirstLastEmit= new EventEmitter();
   
 //First name send to service 
   FirstName(event){
@@ -34,15 +35,17 @@ export class DialogueComponent implements OnInit {
     this.LastNameValue=event.target.value;
     this.LocalStorageService.localStorageLastName(this.LastNameValue);
       }
-  //this button save the value and hide the input button and message 
+  //submit button save the value and hide the input button and message 
   StoreFirstLastName(){
+  this.FirstLastEmit.emit();
    this.showFirstNameAndWelcomeMessage="Alright " + this.FirstNameValue + " what can I do you for?";
    this.HowdyText=false;
    this.inputForm=false;
    this.showChangeForm=true;
-   this.showBeverage=true;
    this.showUsual=true;
    this.showJustChangeForm=true;
+   this.showforgetMessage=false;
+   
    
   }
   //send to the service 
@@ -54,21 +57,22 @@ export class DialogueComponent implements OnInit {
   StoreChangeName(){
     this.showFirstNameAndWelcomeMessage="Alright " + this.ChangeNameValue + " what can I do you for?";
     
+    
   }
     //receive  usual data from usual component
     getUsual(){
+    
       this.showFirstNameAndWelcomeMessage="Hello Again   " + this.FirstNameValue+"  The usual?";
       this.showJustChangeForm=false;
     }
+   
 
   constructor(public LocalStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
-    this.FirstNameValue=this.LocalStorageService.getFirstName();
+    this.FirstNameValue=this.LocalStorageService.retriveFirstName();
+    this.HowdyText=true;
     this.inputForm=true;
-     
-     
-     
-  }
+}
 
 }

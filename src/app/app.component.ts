@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { Drink } from './drink';
 
@@ -10,15 +10,12 @@ import { Drink } from './drink';
 export class AppComponent {
   SelectBeverageList: Drink[];
   title = 'Lab1-saloon';
-  showforget:boolean;
   showforgetMessage:boolean;
   inputForm:boolean;
   showChangeForm:boolean;
+  HowdyText:boolean;
+  showforget:boolean=true;
   showBeverage:boolean;
-  
-  
-
-
 
   constructor(public LocalStorageService:LocalStorageService) { }
 
@@ -26,14 +23,18 @@ export class AppComponent {
     
   }
   
-  //Delete data function
+  //Delete data and return to the begining
   controlEmit(){
     this.LocalStorageService.deleteData();
-    this.showforget=false;
     this.inputForm=true;
-    this.showBeverage=false;
     this.showChangeForm=false;
     this.showforgetMessage=true;
+    this.showBeverage=false;
+    
+  }
+  FirstLastEmitControl(){
+    this.LocalStorageService.getBeverage();
+    this.showBeverage=true;
   }
   
 }

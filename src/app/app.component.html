@@ -2,10 +2,11 @@
 <app-dialogue
 [inputForm]='inputForm'
 [showChangeForm]='showChangeForm'
-
-
-></app-dialogue>
-<app-beverage [showBeverage]='showBeverage' ></app-beverage>
-<app-right-to-be-forgotten (forgetEmit)='controlEmit()' 
+[HowdyText]='HowdyText'
 [showforgetMessage]='showforgetMessage'
-[showforget]='showforget'></app-right-to-be-forgotten>
+(FirstLastEmit)='FirstLastEmitControl()'
+>
+</app-dialogue>
+<app-beverage [showBeverage]='showBeverage' ></app-beverage>
+<app-right-to-be-forgotten (forgetEmit)='controlEmit()' [showforget]='showforget'
+></app-right-to-be-forgotten>
