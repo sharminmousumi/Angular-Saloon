@@ -15,6 +15,8 @@ export class DialogueComponent implements OnInit {
   @Input() showChangeForm:boolean;
   showUsual:boolean;
   HowdyMessage:string;
+  showBeverage:boolean;
+  
   
   FirstNameValue:any;
   LastNameValue:any;
@@ -59,20 +61,46 @@ export class DialogueComponent implements OnInit {
     
     
   }
+  
     //receive  usual data from usual component
     getUsual(){
     
       this.showFirstNameAndWelcomeMessage="Hello Again   " + this.FirstNameValue+"  The usual?";
-      this.showJustChangeForm=false;
+     
+      
+      
     }
    
 
-  constructor(public LocalStorageService:LocalStorageService) { }
+  constructor(public LocalStorageService : LocalStorageService) { }
 
   ngOnInit(): void {
     this.FirstNameValue=this.LocalStorageService.retriveFirstName();
-    this.HowdyText=true;
-    this.inputForm=true;
+    //this.HowdyText=true;
+    
+    
+      if(this.FirstNameValue){
+       // alert(this.FirstNameValue);
+        this.showFirstNameAndWelcomeMessage="Hello Again   " + this.FirstNameValue+"  The usual?";
+        this.showJustChangeForm=true;
+        this.inputForm=false;
+        this.HowdyText=false;
+        this.showChangeForm=true;
+        this.showUsual=true;
+        this.showBeverage=true;
+        
+        
+        
+      }else{
+        
+        this.HowdyText=true;
+        this.inputForm=true;
+        this.showJustChangeForm=false;
+        this.showChangeForm=false;
+      }
+      
+   
+  
 }
 
 }

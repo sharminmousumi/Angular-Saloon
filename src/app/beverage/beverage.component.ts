@@ -38,7 +38,15 @@ export class BeverageComponent implements OnInit {
 
   ngOnInit(): void {
   this.SelectBeverageList=this.LocalStorageService.getBeverage();
-  this.showBeverage=false;
+  this.inputValue=this.LocalStorageService.getstoreBeverage();
+  
+  if(this.inputValue){
+    this.showSelectedBeverage= "One " + this.inputValue+"  coming right up!";   
+    
+  }else{
+    this.showBeverage=false;
+  }
+  
   
   }
 

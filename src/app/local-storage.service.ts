@@ -9,7 +9,7 @@ import { Drink } from './drink';
 })
 export class LocalStorageService {
   //FirstName store to the local storage
-  localStorageFirstName(FirstName){
+  localStorageFirstName(FirstName:string){
     localStorage.setItem('FirstName', FirstName);
   }
 //LastName store to the local storage
@@ -21,7 +21,7 @@ export class LocalStorageService {
     localStorage.setItem('FirstName', FirstName);
   }
   retriveFirstName(){
-    localStorage.getItem('FirstName');
+   return localStorage.getItem('FirstName');
   }
  
   //select beverage list
@@ -53,4 +53,6 @@ export class LocalStorageService {
  
 
   constructor() { }
+  
+
 }

@@ -2,7 +2,7 @@
 <h1>{{showSelectedBeverage}}</h1>
 
 
-    
+
 <div class="grid" *ngFor="let beverage of SelectBeverageList">   
 <strong>{{beverage.name}}</strong><button id="addbutton" (click) ="addBeverage(beverage.name)">ADD</button>
 </div>

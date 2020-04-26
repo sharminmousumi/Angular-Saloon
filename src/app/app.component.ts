@@ -13,13 +13,14 @@ export class AppComponent {
   showforgetMessage:boolean;
   inputForm:boolean;
   showChangeForm:boolean;
-  HowdyText:boolean;
+  HowdyText:boolean=true;
   showforget:boolean=true;
   showBeverage:boolean;
 
   constructor(public LocalStorageService:LocalStorageService) { }
 
   ngOnInit(): void {
+    
     
   }
   
